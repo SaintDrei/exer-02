@@ -1,15 +1,21 @@
 <?php
 	include "../config.php";
 	require "../libraries/phpmailer/PHPMailerAutoLoad.php";
+    require_once "../libraries/phpmailer/class.smtp.php";
+    require_once "../libraries/phpmailer/class.phpmailer.php";
 
 	$mail = new phpmailer;
 	$mail->isSMTP();
+    $mail->SMTPDebug = 3;
 	$mail->HOST = "smtp.gmail.com";
+    $mail->Port = "465";
 	$mail->SMTPAuth = true;
+    $mail->smtp_ssl = auto;
+    
 	$mail->Username = "teamblazit@gmail.com";
-	$mail->Password = "ecosaisse";
+	$mail->Password = "ecosaisse"; 
 	$mail->SMTPSecure = 'ssl';
-	$mail->Port = "465";
+	
 
 	$mail->setFrom('teamblazit@gmail.com', 'The Administrator');
 	$mail->isHTML(true);
@@ -69,6 +75,7 @@
         <link href="https://bootswatch.com/flatly/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             rel="stylesheet" type="text/css" />
+        
 	</head>
 	<body>
 		<div class="container">
@@ -141,6 +148,7 @@
 				</form>
 			</div>
 		</div>
-		<script type="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
 	</body>
 </html>
